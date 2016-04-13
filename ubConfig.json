@@ -1,0 +1,31 @@
+{
+	"httpServer": {
+		"host": "localhost",
+		"port": "80",
+		"threadPoolSize": 2,
+		"inetPub": ".\\public",
+		"headersPostprocessors": "#include(%UB_HOME%\\models\\defHeadersPostprocessors.json)",
+		"watchFileChanges": {
+			"enabled": false,
+			"hashingStrategy": "ModifyDate"
+		}
+	},
+	"logging": {
+		"levels": [
+			"Exception",
+			"ExceptionOS",
+			"Memory",
+			"StackTrace",
+			"Fail",
+			"Warning",
+			"Error"
+		],
+		"path": ".\\_logs",
+		"rotationSizeInMB": 100
+	},
+	"uiSettings": {
+		"adminUI": {
+			"themeName": "UBGrayTheme"
+		}
+	}
+}

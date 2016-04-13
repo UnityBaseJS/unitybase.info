@@ -1,0 +1,73 @@
+menu:
+  docs: Документация
+  news: Новости
+  server_api:  API сервера 
+  adminui_api: API adminUI
+  ub_core_api: API ub-core
+  search: Search
+
+index:
+  get_started: Начать разрабатывать
+
+page:
+  contents: Содержание
+  back_to_top: Наверх
+  improve: Улучшить
+  prev: Пред.
+  next: След.
+  last_updated: "Последнее обновление: %s"
+
+sidebar:
+  docs:
+    getting_started: Знакомство
+    overview: Обзор
+    design: Проектирование
+    setup: Установка
+    first_app: Первое приложение
+    architecture: Архитектура
+    migration: Миграции
+
+    configuration: Конфигурирование
+    commands: Commands
+    basic_usage: Basic Usage
+    writing: Writing
+    front_matter: Front-matter
+    tag_plugins: Tag Plugins
+    asset_folders: Asset Folders
+    data_files: Data Files
+    server: Server
+    generating: Generating
+    deployment: Deployment
+    customization: Customization
+    permalinks: Permalinks
+    themes: Themes
+    structure: Structure
+    templates: Templates
+    variables: Variables
+    helpers: Helpers
+    internationalization: Internationalization (i18n)
+    plugins: Plugins
+    miscellaneous: Miscellaneous
+    troubleshooting: Troubleshooting
+    contributing: Contributing
+  api:
+    core: Core
+    overview: Overview
+    events: Events
+    locals: Locals
+    router: Router
+    box: Box
+    rendering: Rendering
+    posts: Posts
+    scaffolds: Scaffolds
+    themes: Themes
+    extensions: Extensions
+    console: Console
+    deployer: Deployer
+    filter: Filter
+    generator: Generator
+    helper: Helper
+    migrator: Migrator
+    processor: Processor
+    renderer: Renderer
+    tag: Tag
