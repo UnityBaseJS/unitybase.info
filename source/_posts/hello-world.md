@@ -1,38 +1,11 @@
+title: Launch a site
+tags:
+  - site
+categories: ["news"]
+date: 2016-04-06 18:01:00
 ---
-title: Hello World
----
-Welcome to [Hexo](https://hexo.io/)! This is your very first post. Check [documentation](https://hexo.io/docs/) for more info. If you get any problems when using Hexo, you can find the answer in [troubleshooting](https://hexo.io/docs/troubleshooting.html) or you can ask me on [GitHub](https://github.com/hexojs/hexo/issues).
+Welcome to [UnityBase](https://unitybase.info/)! We are happy to introduce our new official site.
 
-## Quick Start
+Only Russian version of the [documentation](/ru/docs/) available at the moment, but in a few days we provide a English translation. Feel free to improve a documentation - every page has a _improve this doc_ link in the upper right.
 
-### Create a new post
-
-``` bash
-$ hexo new "My New Post"
-```
-
-More info: [Writing](https://hexo.io/docs/writing.html)
-
-### Run server
-
-``` bash
-$ hexo server
-```
-
-More info: [Server](https://hexo.io/docs/server.html)
-
-### Generate static files
-
-``` bash
-$ hexo generate
-```
-
-More info: [Generating](https://hexo.io/docs/generating.html)
-
-### Deploy to remote sites
-
-``` bash
-$ hexo deploy
-```
-
-More info: [Deployment](https://hexo.io/docs/deployment.html)
+Here we will write a UnityBase platform news and interesting materials, so you can subscribe to **RSS** available on this site to be up to date with our news.

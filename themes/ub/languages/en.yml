@@ -19,30 +19,13 @@ page:
 
 sidebar:
   docs:
-    getting_started: Getting Started
+    getting_started: Getting started
     overview: Overview
+    design: Design
     setup: Setup
-    configuration: Configuration
-    commands: Commands
+    first_app: First app
+    architecture: Architecture
     migration: Migration
-    basic_usage: Basic Usage
-    writing: Writing
-    front_matter: Front-matter
-    tag_plugins: Tag Plugins
-    asset_folders: Asset Folders
-    data_files: Data Files
-    server: Server
-    generating: Generating
-    deployment: Deployment
-    customization: Customization
-    permalinks: Permalinks
-    themes: Themes
-    structure: Structure
-    templates: Templates
-    variables: Variables
-    helpers: Helpers
-    internationalization: Internationalization (i18n)
-    plugins: Plugins
     miscellaneous: Miscellaneous
     troubleshooting: Troubleshooting
     contributing: Contributing

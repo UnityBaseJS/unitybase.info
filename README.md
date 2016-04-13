@@ -20,8 +20,10 @@ Generate:
 $ hexo generate
 ```
 
+Install UnityBase.
+
 Run server:
 
 ``` bash
-$ hexo server
+$ ub
 ```

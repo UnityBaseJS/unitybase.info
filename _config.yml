@@ -31,4 +31,5 @@ algolia:
     api_key: 
     index_name: 
 twitter: unitybase
-github: UnityBaseJS
+github: unitybasejs
+rss: /atom.xml
