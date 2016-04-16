@@ -4,7 +4,20 @@
 		"port": "80",
 		"threadPoolSize": 2,
 		"inetPub": ".\\public",
-		"headersPostprocessors": "#include(%UB_HOME%\\models\\defHeadersPostprocessors.json)",
+		"headersPostprocessors": [
+			{
+				"name": "allStatic",
+				"location": "\\.(js|html|css)$",
+				"usePreparedGzip": true,
+				"addHeader": "Vary: Accept-Encoding",
+				"useETag": true
+			},
+			{
+				"name": "images",
+				"location": "\\.(ico|txt|gif|jpg|png|jpeg)$",
+				"expires": 25920000
+			}
+		],
 		"watchFileChanges": {
 			"enabled": false,
 			"hashingStrategy": "ModifyDate"

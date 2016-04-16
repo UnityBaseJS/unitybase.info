@@ -1,43 +1,42 @@
 title: Introduction
 date: 2016-04-08 17:43:24
 ---
-Добро пожаловать с документацию по UnityBase. Если у Вас возникли проблемы при работе с UnityBase, то обратите внимание на  [troubleshooting guide](troubleshooting.html), заведите запрос в [GitHub](https://github.com/unitybasejs/unitybase/issues) или задайте вопрос в [Google Group](https://groups.google.com/group/unitybase).
+Welcome to the UnityBase documentation. If you encounter any problems when using UnityBase, have a look at the  [troubleshooting guide](troubleshooting.html), raise an issue on [GitHub](https://github.com/unitybasejs/unitybase/issues) or start a topic on the [Google Group](https://groups.google.com/group/unitybase).
 
-## Что такое UnityBase?
+## What is UnityBase?
 
-UnityBase - платформа для быстрой разработки высоконагруженных корпоративных веб приложений класса [Управление записями](https://en.wikipedia.org/wiki/Records_management) (RMS или учётные системы) и [Управление электронными документами](https://en.wikipedia.org/wiki/Electronic_document_and_records_management_system) (EDRMS - учетные системы с неструктурированным контентом).
+UnityBase - platform for the rapid development of Hi-Load enterprise web applications. The strongest area of application is [Record Management Systems](https://en.wikipedia.org/wiki/Records_management) (RMS) and [Electronic Document and Records Management System](https://en.wikipedia.org/wiki/Electronic_document_and_records_management_system) (EDRMS).
 
-Серверная часть платформы - высокопроизводительный веб-сервер со встроенной поддержкой JavaScript, ORM для транзакционных СУБД и метаданных о предметной области. Клиентская часть - RIA с поддержкой автогенерации интерфейса пользователя на основе метаданных.
+The server part of the platform - a high-performance web server with built-in support for JavaScript, ORM for transactional databases and metadata about the domain. The client part - [RIA](https://en.wikipedia.org/wiki/Rich_Internet_application) with user interface autogeneration based on metadata.
 
-Взаимодействие с сервером приложений реализуется на базе автогенерируемого по метаданным REST API, что позваляет взаимодействовать с сервером любым современным приложениям, а  
-использование единого языка JavaScript, как на сервере, так и на клиенте, позволяет не только быстро вносить изменения в функциональность приложения, но и гарантирует владельцу бизнеса наличие всех исходных кодов в доступном для изменения виде, что важно при длительной поддержке или смене поставщика услуг по разработке.
+Automatically generated server API? based on metadata and an HTTP-based protocol allows you to interact with the server from any modern applications. Using of JavaScript language on the both the server and the client side allows not only to make quick changes to the functionality, but and assures a business owner you have all the source code in an accessible form to change, which is important for long-term support or in case of change of service provider.
 
-Приложения, разработанные с использованием платформы, являются:
+Applications developed using the platform are:
 
- - **масштабируемыми** - могут обслуживать тысячи одновременно активных пользователей
- - **сопровождаемыми** - поддержка QOS, мониторинг производительности, низкоуровневый аудит операций с БД и системных вызовов
- - **тестируемыми** - миграция между промышленным и тестовым окружениями, непрерывная интеграция(CI), автотесты
- - **безопасными** - поддержка строгих схем аутентификации, включая аутентификацию по цифровым сертификатам и SSO
- - **предсказуемыми** - любые манипуляции с данными записываются в таблицы аудита
- - **независимыми от СУБД** - на выбор: Oracle, MS SQL, PostgreSQL, SQLite3
- - **расширяемыми** - подключение новых частей приложения "на лету"
- 
+- **scalable** - can serve thousands of active users.
+- **maintained** - supports QOS, performance monitoring, low level database and system calls audit
+- **tested** - ready for CI including autotests
+- **secured** - support strong authentication schemas, including SSO
+- **predictable** - all data changes of all users are recorded to audit tables
+- **database agnostic** - can be used with Oracle, PostgreSQL of MS SQL database
+- **ready for scale** - divided into logical blocks (models), connected to the application "on the fly"
 
-Ежедневно более 50 000 человек используют решения на базе платформы, которые:
- - доступны в режиме 24 / 7 / 365
- - обслуживают терабайтные БД 
- - обеспечивают доступ к десяткам терабайт неструктурированных документов (файлам)
- - состоят из нескольких сотен сущностей и реализуют тысячи функциональных требований
+Every day, more than 50 000 people are using solutions based on platforms that:
 
-## С чего начать?
-Подходы к разработке крупного проекта зачастую отличается от аналогичных подходов для средних и небольших приложений. Мы рекомендуем начать изучение с раздела [Проектирование](design.html), в котором описаны базовые принципы и подходы к построению приложений с использованием платформы.  
+- accessible on a 24/7/365
+- server a terabyte databases
+- provide access to tens of terabytes of unstructured documents (files)
+- consist of several hundreds of entities and implementing thousands of functional requirements
+  
+## Where to begin?
+Approaches to the development of a large project is often different from those suitable for medium and small applications. We recommend starting with a study of the [design](design.html), which describes the basic principles and approaches to building applications using the platform.
 
-Раздел [Установка](setup.html) поможет с инсталляцией и первоначальной настройкой системы, а раздел [Первое приложение](getting_started.html) - с созданием Вашего первого приложения на UnityBase.
+The [Setup](setup.html) will help with the installation and initial configuration of the platform, and the section [first application](getting_started.html) - with the creation of your first application on UnityBase.
 
-В разделе [Архитектура](architecture.html) описаны низкоуровневые принципы работы сервера приложений UnityBase, которые могут пригодиться при планировании развёртывания высоконагруженных проектов
+The [Architecture](architecture.html) article describes the low-level principles of UnityBase application server, which can be useful when planning the deployment of Hi-Load projects.
 
-## OpenSource технологии
-Проект UnityBase использует несколько OpenSource технологий, без которых реализация всего, что мы сделали, была бы невозможна:
+## OpenSource stack
+UnityBase project uses several OpenSource technologies, without which the realization of all that we have done, would have been impossible:
 
-- [SpiderMonkey](https://developer.mozilla.org/ru/docs/SpiderMonkey) - JavaScript интерпретатор
+- [SpiderMonkey](https://developer.mozilla.org/ru/docs/SpiderMonkey) - JavaScript runtime
 - [Synopse](http://synopse.info/fossil/wiki/Synopse+OpenSource) - SOA framework. We are a SpiderMonkey integration contributor
