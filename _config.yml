@@ -1,6 +1,6 @@
 title: UnityBase
 subtitle: "Full-Stack JavaScript framework for Enterprise"
-description: "UnityBase is a fast, simple & powerful full stack java script framework for a BIG applications."
+description: "UnityBase - fast, simple & powerful full stack JavaScript framework for a BIG applications."
 author: UnityBase team
 language: en
 timezone: UTC
@@ -27,9 +27,7 @@ disqus_shortname: UnityBase
 google_analytics: 
 fb_admins: 
 algolia:
-  en:
-    api_key: 
-    index_name: 
 twitter: unitybase
 github: unitybasejs
+facebook: platformUnityBase
 rss: /atom.xml

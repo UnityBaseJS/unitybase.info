@@ -6,8 +6,9 @@
     </div>
     <div id="footer-links">
       <a href="https://twitter.com/{{ config.twitter }}" class="footer-link" target="_blank"><i class="fa fa-twitter"></i></a>
+      <a href="https://www.facebook.com/{{ config.facebook }}" class="footer-link" target="_blank"><i class="fa fa-facebook"></i></a>
       <a href="https://github.com/{{ config.github }}" class="footer-link" target="_blank"><i class="fa fa-github-alt"></i></a>
-      <a href="{{ config.rss }}" title="RSS Feed" class="footer-link"><i class="fa fa-rss"></i></a>
+      <a href="{{ config.rss }}" title="RSS Feed" class="footer-link" target="_blank"><i class="fa fa-rss"></i></a>
     </div>
   </div>
 </footer>
