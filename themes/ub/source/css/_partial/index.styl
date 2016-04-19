@@ -1,13 +1,12 @@
 #banner
   color: rgba(255, 255, 255, 0.95)
   text-align: center
+  padding-bottom: 10px
   @media mq-normal
     background: url("/header_1920.jpg") 50% 0 no-repeat
-    height: 408px
     background-size: cover
   @media mq-mobile
     background: url("/header_768.jpg") 50% 0 no-repeat
-    height: 170px
 
 
 #banner-title
@@ -27,6 +26,19 @@
   @media mq-mobile
     font-size: 24px
 
+#banner h3
+  padding-top: 20px
+  font-size: 1em
+  line-height: 1.15
+  font-weight: 700
+  font-family: font-title
+  text-shadow: none
+  letter-spacing: -1.5
+  @media mq-normal
+    padding-left: 10%
+    font-size: 2em
+    text-align: left
+  
 #banner-start
   text-align: center
   padding: 40px 0
@@ -52,6 +64,7 @@
 
 #banner-share
   padding-top: 1em
+  height: 35px
   @media mq-normal
     text-align: left
     padding-left: 10%
@@ -102,10 +115,9 @@
     flex-flow: row wrap
 
 .intro-feature-wrap
-  padding-top: 20px
+  padding-bottom: 10px
   @media mq-normal
     flex: 0 0 50%
-    padding-top: 50px
 
 .intro-feature
   position: relative

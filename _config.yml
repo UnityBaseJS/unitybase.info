@@ -24,7 +24,7 @@ deploy:
 favicon: /favicon.ico
 
 disqus_shortname: UnityBase
-google_analytics: 
+google_analytics: UA-66006954-1
 fb_admins: 
 algolia:
 twitter: unitybase

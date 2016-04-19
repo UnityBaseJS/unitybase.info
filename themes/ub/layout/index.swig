@@ -2,6 +2,7 @@
 <div id="banner">
   <div class="inner">
     <h2 id="banner-title">{{ indexpage.subtitle }}</h2>
+    <h3>{{ indexpage.description }}</h3>
     <!--div id="banner-start">
       <span id="banner-start-command">Admin UI live demo</span><a id="banner-start-link" href="docs/"><i class="fa fa-arrow-right"></i></a>
     </div-->

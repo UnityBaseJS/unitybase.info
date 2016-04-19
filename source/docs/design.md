@@ -2,12 +2,12 @@ title: Design
 date: 2016-04-08 17:43:24
 ---
 ## Introduction
-UnityBase applications are built on the principle of [Model-driven engineering](https://en.wikipedia.org/wiki/Model-driven_engineering) **(MDE) ** - a software development methodology which focuses on creating and exploiting domain models, which are conceptual models of all the topics related to a specific problem. Hence it highlights and aims at abstract representations of the knowledge and activities that govern a particular application domain, rather than the computing (f.e. algorithmic) concepts.  
+UnityBase applications are built on the principle of [Model-driven engineering](https://en.wikipedia.org/wiki/Model-driven_engineering) **(MDE) ** - a software development methodology which focuses on creating and exploiting domain models which are conceptual models of all the topics related to a specific problem. Hence it highlights and aims at abstract representations of the knowledge and activities that govern a particular application domain, rather than the computing (f.e. algorithmic) concepts.  
 
-The MDE approach is meant to increase productivity by maximizing compatibility between systems (via reuse of standardized models), simplifying the process of design (via models of recurring design patterns in the application domain), and promoting communication between individuals and teams working on the system (via a standardization of the terminology and the best practices used in the application domain).
+The MDE approach is meant to increase productivity by maximizing compatibility between systems (via reusing of standardized models), simplifying the process of design (via models of recurring design patterns in the application domain), and promoting communication between individuals and teams working on the system (via the standardization of the terminology and the best practices used in the application domain).
 
 ## Models
-In most enterprise systems using large-scale areas of responsibility. In UnityBase this level of abstraction called **models**. For example, the accounting system of a large corporation may have the following models: 
+In most of enterprise systems the large-scale areas of responsibility are used. In UnityBase this level of abstraction is called **models**. For example, the accounting system of a large corporation may have the following models: 
 
 - "Security"
 - "Administration"
@@ -17,14 +17,14 @@ In most enterprise systems using large-scale areas of responsibility. In UnityBa
 - "Notifications"
 - "ERP integrations"
 
-При проектировании система ведения организационной структуры и система безопасности выделяются как совершенно разные вещи. Приложения, в которых при реализации не удаётся разделить и изолировать бизнес-логику в модели с четко ограниченной функциональностью, часто приобретают архитектурный стиль, который имеет красноречивое название «Большой ком грязи». UnityBase помогает предотвратить такой эффект, предлагая разработчикам структурировать сложную предметную область на модели.  
+In process of design the system of organizational structure and security system stand out as different issues. The applications which were designed with no separation and isolation of business-logic in a model with distinctly limited functionality often acquire the archirectural style with telling name «The Big Ball of Mud». UnityBase helps to prevent such effect offering the developers to structure the complicated domain into the models.  
 
 Platform includes a number of commonly used models:
 
 |Код модели|Описание|
 |----------|--------|
 |UB | Common for all system. Responsible for database generation|
-|UBA | Administration. Management of users, roles, access rights, securirt audit|
+|UBA | Administration. Management of users, roles, access rights, security audit|
 |UBS | Services. Modification audit, reports, numerators, settings, notifications, pessimistic lock |
 |UBM | Metadata for a `adminUI`: form(view) definition, desktops & shotrcuts (routing), ER diagrams|
 |UBQ | Task queue and task execution statistics|
@@ -35,48 +35,49 @@ Platform includes a number of commonly used models:
 |XLSX | XLSX (Excel) generation|
 
 {% note info %}
-In UnityBase model represented as folders on the server 
+In UnityBase models are represented as folders on the server 
 {% endnote %}
 
 ## Entities
-The model consists of a set of __entities__. Например, модель "Организационная структура" состоит из сущностей: "Организационная единица", "Организация", "Подразделение", "Сотрудник", "Назначение" и т.д. Проще всего о сущностях думать как о существительных. У сущности есть _индивидуальность_ - **набор атрибутов**. 
+The model consists of a set of __entities__. For instance, the model "Organizational structure" consists of the following entities: "Organizational unit", "Organization", "Department", "Employee", "Staff" and so on. It's more simple to imagine the entities as the nouns. The entity possesses the _individuality_ - **the set of the attributes**. 
 
-Например, для сущности "Сотрудник" стоит определить атрибуты:
- - "Фамилия"
- - "Имя"
- - "Отчество"
- - "Дата рождения"
-а для сущности "Назначение":
-- "Дата с"
-- "Дата по"
-- "Организационная единица"
-- "Сотрудник"
+For example, the entity "Employee" requires to spot such attributes as:
+ - "Surname"
+ - "Name"
+ - "Patronymic"
+ - "Date of Birth"
+
+while the "Staff" entity requires:
+- "Date from"
+- "Date to"
+- "Organizational Unit"
+- "Employee"
 
 {% note info %}
-Entity definition are stored in the JSON file named as `entityCode.meta` inside the model folder
+Entity definition is stored in the JSON file named as `entityCode.meta` inside the model folder
 {% endnote %}
 
 ## Behavior
-Each entity has a _behavior_ - a set of methods. О _методах_ стоит думать как о глаголах. Например, сущность "Сотрудник" должна уметь:
- - _сохранить_ свои изменения
- - _удалить_ себя из списка
- - _создать_ шаблон для добавления нового сотрудника со значениями по умолчанию
+Each entity has a _behavior_ - a set of methods. The _methods_ should be imagined as the verbs. For instance, "Employee" entity has to be able to:
+ - _save_ its changes
+ - _delete_ itself from the list
+ - _create_ the template for adding new employee with default values
 
-У сущности "Организационная единица" дополнительно должен быть метод _расформировать_.   
+The entity "Organizational Unit" has to obtain the method  _disband_ additionally.   
 
 {% note info %}
-Методы сущности хранятся в JavaScript файле `кодСущности.js` рядом с метафайлом
+The entity methods are stored in JavaScript file `entityCode.js` in the same folder where the metafile is stored
 {% endnote %}
 
-Для методов сущности существует три области видимости, по аналогии с концепцией ООП:
-- __public__ - доступные для вызова клиентами извне (с использованием API)
-- __protected__ - доступные для вызова из методов других сущностей, но недоступные извне
-- __private__ - доступные для вызова только методам этой сущности
+There are three access modifiers for the entity methods, Для методов сущности существует три области видимости, in analogy with concept of OOP:
+- __public__ - available for external API call 
+- __protected__ - available for call from other entity methods yet not available for external API call
+- __private__ - available only for the current entity methods 
 
 ## Mixins
-Очевидно, что существует ряд общих _поведений_ у сущностей. Например, "Сотрудник" и "Назначение" должны уметь сохранятся в БД, желательно учитывать историю изменения, как фамилии сотрудника, так и периода назначения, обе сущности желательно не удалять напрямую, а лишь помечать на удаление. Также администратору системы нужно знать историю выполнения операций над сущностями - кто, когда, с какого рабочего места и что модифицировал/удалял/добавлял.
+Obviously, the entities have a number of common _behavior_. For example, "Employee" and "Staff" should be able to be saved in DB, desirably to consider the history of the changes such as employee's surname and the period of appointment, both entities are advisable not to be deleted directly, only marked for deleting. Also the system administrator has to know the history of performing the operations with entities - who, when, where from and what exactly modified/deleted/added.
 
-В UnityBase реализация методов, общих для множества сущностей вынесена в **[Миксины](https://en.wikipedia.org/wiki/Mixin)**. Например, миксин "mStorage" добавляет к любой сущности публичные методы:
+In UnityBase implementation of the methods which are common for many entities is реализация методов, общих для множества сущностей вынесена в **[Миксины](https://en.wikipedia.org/wiki/Mixin)**. Например, миксин "mStorage" добавляет к любой сущности публичные методы:
  - `select` - загрузить из БД
  - `insert` - сохранить в  БД
  - `update` - обновить значение атрибутов в БД

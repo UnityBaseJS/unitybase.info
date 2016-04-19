@@ -35,17 +35,18 @@ Horisontal scale - увеличение количества серверов.
 
 ## Client applications
 ### adminUI
-Веб приложение с поддержкой автогенерации/декларативного описания интерфейса пользователя, позволяющее создавать _интранет_ приложения неограниченного уровня сложности.
+Allow to very quickly create _intranet_ Web application with autogeneration/declarative description of UI.
 
-Административный интерфейс (adminUI) - [Rich Internet application](https://en.wikipedia.org/wiki/Rich_Internet_application), предназначенное для создания десктоп-подобного интерфейса пользователя. Большинство интерфейсных элементов adminUI тесно интегрированны с моделью предметной области и являются автогенерируемыми. Таким образом достаточно описать на стороне сервера новую сущность системы (например, "Контрагент"), и adminUI автоматически обеспечивает основные операции с указанной сущностью:
+adminUI - [Rich Internet application](https://en.wikipedia.org/wiki/Rich_Internet_application), designed to create a desktop-like user interface. All UI elements are based on Domain model and often automatically generated. Thus it's enough to define entity on the server side ("Customer", for example), and adminUI will automatically build a view layer for:
 
- - просмотр списка, включая поиск, фильтрацию и.т.д.
- - форма для редактирования екземпляра
- - сложные ссылочные поля и отношения мастер/деталь
- - пользовательское меню 
+ - list view of customers, includion pagination, filtration, sorting, export etc.
+ - single element view/edit form
+ - reference field (combobox) and the master / detail relationship 
+ - menus 
  
- Административный интерфейс включает в себя встроенный построитель форм, позволяющий кастомизировать пользовательские формы произвольным образом
+ The administrative interface includes a built-in form builder that allows you to customize the user form in an arbitrary manner.
 
 ### portalUI
-Data access layer for  `adminUI` построен на базе библитотеки доступа `ub-core.js`  - наборе классов, облегчающий взаимодействие с сервером для браузерных клиентов.  Данная библиотека может быть использована в любом другом веб приложении, основанном на любом фреймворке, будь то Angular, React и.т.д. 
-Дополнительно предоставляются клиентские библиотеки для `.Net`, `PHP`, `VBA (excel)`, `iOS`, `Android`.
+Data access layer for  `adminUI` is based on the library `ub-core.js`  - set of classes to facilitate interaction with the server for browser clients.  This library can be used to build a custom UI using any Web application framework, whether Angular, React, etc.
+
+Additionally, we provide client libraries for `.Net`, `PHP`, `VBA (excel)`, `iOS`, `Android`.
