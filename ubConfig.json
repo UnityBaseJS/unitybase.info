@@ -2,7 +2,7 @@
 	"httpServer": {
 		"host": "localhost",
 		"port": "80",
-		"threadPoolSize": 2,
+		"threadPoolSize": 4,
 		"inetPub": ".\\public",
 		"headersPostprocessors": [
 			{
@@ -31,10 +31,25 @@
 			"StackTrace",
 			"Fail",
 			"Warning",
-			"Error"
+			"Error",
+			"HTTP"
 		],
 		"path": ".\\_logs",
 		"rotationSizeInMB": 100
+	},
+	"application": {
+		"domain": {
+			"models": [
+				{
+					"name": "UB",
+					"path": "%UB_HOME%\\models\\UB"
+				},
+				{
+					"name": "CI",
+					"path": "%UB_HOME%\\models\\CI"
+				}
+			]
+		}
 	},
 	"uiSettings": {
 		"adminUI": {

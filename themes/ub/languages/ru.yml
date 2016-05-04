@@ -1,6 +1,7 @@
 menu:
   docs: Документация
   news: Новости
+  tutorials: Туториалы	
   server_api:  API сервера 
   adminui_api: API adminUI
   ub_core_api: API ub-core

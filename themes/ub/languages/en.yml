@@ -1,6 +1,7 @@
 menu:
   docs: Docs
   news: News
+  tutorials: Tutorials	
   server_api: Server API
   adminui_api: AdminUI API 
   ub_core_api: UBCore API 

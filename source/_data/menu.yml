@@ -1,6 +1,7 @@
 docs: /docs/
 news: /news/
-server_api: /api/server/
+server_api: /api/serverNew/
+tutorials: /api/server/#!/guide
 adminui_api: /api/webclient/
 ub_core_api: /api/ubcore/
 

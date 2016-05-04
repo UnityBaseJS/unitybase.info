@@ -21,7 +21,7 @@ In process of design the system of organizational structure and security system 
 
 Platform includes a number of commonly used models:
 
-|Код модели|Описание|
+|Model code|Description|
 |----------|--------|
 |UB | Common for all system. Responsible for database generation|
 |UBA | Administration. Management of users, roles, access rights, security audit|
@@ -77,12 +77,12 @@ There are three access modifiers for the entity methods, Для методов �
 ## Mixins
 Obviously, the entities have a number of common _behavior_. For example, "Employee" and "Staff" should be able to be saved in DB, desirably to consider the history of the changes such as employee's surname and the period of appointment, both entities are advisable not to be deleted directly, only marked for deleting. Also the system administrator has to know the history of performing the operations with entities - who, when, where from and what exactly modified/deleted/added.
 
-In UnityBase implementation of the methods which are common for many entities is реализация методов, общих для множества сущностей вынесена в **[Миксины](https://en.wikipedia.org/wiki/Mixin)**. Например, миксин "mStorage" добавляет к любой сущности публичные методы:
- - `select` - загрузить из БД
- - `insert` - сохранить в  БД
- - `update` - обновить значение атрибутов в БД
- - `delete` - удалить экземпляр из БД
- - `addNew` - создать новый экземпляр со значениями по умолчанию
+In UnityBase implementation of the methods which are common for many entities are placed into **[Mixins](https://en.wikipedia.org/wiki/Mixin)**. For example, mixin "mStorage" will add to entity such methods:
+ - `select` - load instances from DB
+ - `insert` - save instance to DB
+ - `update` - update values of instance attributes into DB
+ - `delete` - delete instancefrom DB
+ - `addNew` -create a new instance with default values
  
   
 {% note info %}
@@ -107,7 +107,7 @@ In UnityBase implementation of the methods which are common for many entities is
 
 
 {% note info %}
-Начиная с версии UnityBase 2.0 разработчик может создавать собственные миксины.
+Starting from UnityBase 2.0 developer can create his own mixins.
 {% endnote %}
 
 ## Metadata

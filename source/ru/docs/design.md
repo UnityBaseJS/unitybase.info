@@ -89,7 +89,7 @@ date: 2016-04-08 17:43:24
 Стандартная поставка платформы включает следующие миксины:
 
 |Mixin|Short name| Description|
-|---|---|
+|---|---|----|
 |mStorage| ORM| Добавляет сущности CRUID методы, обеспечивает функционал мягкого удаления и оптимистической блокировки|
 |audit| Aудит уровня записи|Обеспечивает запись всех CRUID операций над сущностями в сущность аудита **ubs_audit**|
 |rls|Безопасность уровня записей|RLS is a security feature which allows developers to give access to a sub-set of data in their entity to others|
@@ -127,18 +127,43 @@ date: 2016-04-08 17:43:24
  - адрес ресурса (URL): https://mail.google.com/
  - имя ресурса   (URN): mail/u/0/#inbox
 
+### Точки доступа - endpoints
 Существуют разные типы запросов, которые могут присылать клиенты, например:
  - запрос статического файла `site.css` или `myPicture.jpeg`
  - запрос динамического контента с использованием AJAX, например - перечень пользователей системы
  - запрос на аутентификацию пользователя и.т.д.
- 
-Очевидно, внутренняя реализация обработчиков для таких запросов должна отличатся, и сервер должен уметь определить, какого рода ресурс требуется клиенту.  
-Различные типы запросов сервер ожидает на разных URI
-Серевер ожидает клиентских запросов по URL, который указан в конфигурационном файле
+
+Очевидно, внутренняя реализация обработчиков для таких запросов должна отличатся, и сервер должен уметь определить, какого рода ресурс требуется клиенту. Для этого в сервере введено понятие **endpoint** - точка доступа со своим обработчиком. Точка доступа однозначно идентифицируется по имени - первой (до обратного слеша) частью URN.
+Например, при запросе на адрес http://localhost/getAppInfo - `getAppInfo` - имя точки доступа.
+При запросе на адрес http://localhost/models/UB/schemas/ubConfig.schema.json имя точки доступа - **models**. Прочие параметры могут быть интерпретированы обаботчиком точки доступа по своим собственным правилам.
+
+Базовая поставка сервера включает следующие точки доступа:
+
+|Endpoint name|Authorized?| Description|
+|---|---|----|
+|getAppInfo|  | Information about application configuration |
+|initEncryption|+|Negotiation of the encryption key (Enterprise edition)|
+|stat|+|Return application usage statistic|
+|auth|-|Authentication|
+|logout|+|Logout authorized user|
+|timeStamp|-|Return a current server timestamp|
+|getDomainInfo|+|Return JSON representation of application Domain (metadata). Actually a part of metadata accessible to the logged in user|
+|runSQL|+|Execute SQL instruction passed in POST BODY. Accessible ONLY from the local IP address. Optionnaly can take CONNECTION=connectionName URL parameter|
+|evaluateScript|+|Evaluate JS in server context.  Accessible ONLY from the local IP address. Either `GET /evaluateScript?script=....` or `POST /evaluateScript BODY=script`|
+|getDocument|+|Retrieve a document content from blob store and send it to response|
+|setDocument|+|Put a document content to a temporary blob store|
+|setUserData|+|Accept POST request with BODY = JSON with custom user data, to store to `uba_user.uData`|
+|ubql|+|Run a UBQL query. See below|
+|rest|+|TODO|
+|models| | Return a model-related static files. Accept HTTP GET and expect MODEL_NAME as first URI part - http://host:port/models/ModelName/..... and return a file from modelName `public` folder|
+|statics|+|Default endpoint. Server execute this handler if URL do not match any of registered endpoints.Will return a static file from a folder, configured in `serverConfig.httpServer.inetPub` parameter.
+
+
 {% note info %}
-URL — Uniform Resource Locator, или "унифицированный определитель местонахождения ресурса"
+При необходимости низкоуровневого манипулирования контентом HTTP запроса/ответа можно добавить собственную точку доступа используя [App.registerEndpoint](/api/serverNew/App.html#.registerEndpoint). В большинстве случаев рекомендуется использовать существующие endpoint `UBQL` либо `rest`. 
 {% endnote %}
 
+### REST vs Endpoints
 В современном мире доминируют два архитектурных стиля организации клиент-серверного взаимодействия поверх протокола HTTP: REST и _специализированные_ точки доступа (_endpoints_). С детальным обзором достоинств и недостатков обеих подходов можно ознакомится в [этой статье от авторов React](https://facebook.github.io/react/blog/2015/05/01/graphql-introduction.html#why-invent-something-new). Задолго до появления GraphQL мы столкнулись с похожими проблемами при имплементации протокола взаимодействия с сервером UB, и как решение был предложен протокол UnityBase Query Language (UBQL)
 ## UBQL
 

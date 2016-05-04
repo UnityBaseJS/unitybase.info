@@ -1,10 +1,16 @@
 {
   "name": "unitybase.info",
   "version": "1.0.0",
+  "description": "UnityBase site",
   "private": false,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/UnityBaseJS/unitybase.info"
+  },
+  "author": "Pavl Mash <pavel.mash@gmail.com>",
   "hexo": {
     "version": "3.2.0"
-  },
+  },  
   "dependencies": {
     "hexo": "^3.2.0",
     "hexo-admin": "^2.0.1",
