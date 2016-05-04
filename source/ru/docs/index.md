@@ -5,7 +5,7 @@ date: 2016-04-08 17:43:24
 
 ## Что такое UnityBase?
 
-UnityBase - платформа для быстрой разработки высоконагруженных корпоративных веб-приложений класса [Управление записями](https://en.wikipedia.org/wiki/Records_management) (RMS или учётные системы) и [Управление електронными документами](https://en.wikipedia.org/wiki/Electronic_document_and_records_management_system) (EDRMS - учетные системы с неструктурированным контентом).
+UnityBase - платформа для быстрой разработки высоконагруженных корпоративных веб-приложений класса [Управление записями](https://en.wikipedia.org/wiki/Records_management) (RMS или учётные системы) и [Управление электронными документами](https://en.wikipedia.org/wiki/Electronic_document_and_records_management_system) (EDRMS - учетные системы с неструктурированным контентом).
 
 Серверная часть платформы - высокопроизводительный веб-сервер со встроенной поддержкой JavaScript, ORM для транзакционных СУБД и метаданных о предметной области. Клиентская часть - [RIA](https://en.wikipedia.org/wiki/Rich_Internet_application) с поддержкой автогенерации интерфейса пользователя на основе метаданных.
 
