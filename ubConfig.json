@@ -1,9 +1,10 @@
 {
 	"httpServer": {
-		"host": "localhost",
-		"port": "80",
+		"host": "+",
+		"port": "888",
 		"threadPoolSize": 4,
 		"inetPub": ".\\public",
+		"allowCORSFrom": "*",
 		"headersPostprocessors": [
 			{
 				"name": "allStatic",

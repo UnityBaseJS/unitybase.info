@@ -9,3 +9,5 @@ docs:
   miscellaneous:
     troubleshooting: troubleshooting.html
     contributing: contributing.html
+  editions:
+    editions: editions.html

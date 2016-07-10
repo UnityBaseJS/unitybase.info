@@ -9,28 +9,35 @@ All server API is based on HTTP,allowing full-featured and seamlessly integrated
 ### Architecture
 The diagram below shows a generalized architecture UB server: 
 
-![](/images/ubServerArchitecture.png)
+![](/images/ubServerArchitectureWS.png)
 
-When running in a multithreaded mode, server picks up a pool of independent work thread, each of which contains its own copy of the JavaScript runtime with loaded business logic, and (if necessary) - a database connection.
+When running in a multithreaded mode, server picks up a pool of independent HTTP workers (thread), each of which contains its own copy of the JavaScript runtime with loaded business logic, and (if necessary) - a database connection.
 
-When the client send an HTTP request, it is queued and transmitted to the first non-used thread. Thus UB server out of the box is a lightweight [FastCGI](https://ru.wikipedia.org/wiki/FastCGI) or [Node Cluster](https://nodejs.org/api/cluster.html).
+When the client send an HTTP request, it is queued and transmitted to the first non-used HTTP worker. Thus UB server out of the box is a lightweight [FastCGI](https://ru.wikipedia.org/wiki/FastCGI) or [Node Cluster](https://nodejs.org/api/cluster.html).
 
-Unlike Node JS JavaScript inside the UnityBase working thread are synchronous that dramatically simplifies writing server-side business logic. An unhandled exception inside the thread interrupt the current task, put thread in a "ready to use" state and send  exception text in the HTTP response queue. If successful, the result is also placed in the HTTP response queue.
+Unlike Node JS JavaScript inside the worker are synchronous that dramatically simplifies writing server-side business logic. An unhandled exception inside the thread interrupt the current task, put thread in a "ready to use" state and send  exception text in the HTTP response queue. If successful, the result is also placed in the HTTP response queue.
 
 HTTP queue operate in asynchronous non-blocking mode.
 
-### Scale
-#### Vertical 
-Vertical scale - увеличение мощности сервера, осуществляется настройкой в конфигурационном файле количества рабочих потоков и длины очереди. При наличии достаточного количества ядер процессора не наблюдаеся деградации вплоть до 64х рабочих потоков. Длина очереди теоретически ограничена  размером ОЗУ. Таким образом при высокой нагрузке сервер UB способен эффективно (100%) использовать вычислительные мощности сервера вплоть до 64 ядерной конфигурации. 
+### Scalability
+
+#### Vertically
+Scale vertically (or scale up/down) means to add resources to (or remove resources from) a single node in a system.
+Implemented by setting in the configuration file the number of worker threads and queue length
+In the presence of a sufficient number of processor cores, we observed no degradation up to the 64 worker threads.
+Queue length is theoretically limited by the size of RAM. Thus high load UB server can efficiently (100%),
+use the server with up to 32 VCPU.
 
 Additional topic:
  - HTTP server configuration
  - Virtualization & HI Load
 
-#### Horisontal
-Horisontal scale - увеличение количества серверов.
-
-Если возможностей вертикального масштабирования недостаточно, что бывает крайне редко и в большинстве случаев свидетельствует о неоптимальном проектировании серверной бизнес логики, можно применить горизонтальное масштабирование. При этом перед пулом серверов приложений устанавливается и конфигурируется баллансировщик нагрузки. Особенностью UB при горизонтальном масштабировании является хранение каждым екземпляром сервера пользовательский сессий. Для предотвращеня повторных запросов на авторизацию баллансировщик должен обеспечивать попадание всех запросов с одного и того же IP-адреса на один и тот же сервер из пула. 
+#### Horizontally
+Scale horizontally (or scale out/in) means to add more nodes to (or remove nodes from) a system, such as adding a new computer to a distributed software application.
+You need it **very rarely** - UnityBase is fast enough to operate on the single note with for almost any kind of real task.
+But it is possible to put a load balancer before the UnityBase servers farm.
+During the horizontal scaling UB store user sessions inside each instance of the server.
+To prevent re-authorization requests balancer should ensure redirect all the queries of the same client IP-address to the same server in the pool.
 
 
 ## Client applications

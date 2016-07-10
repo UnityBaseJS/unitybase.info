@@ -86,24 +86,25 @@ In UnityBase implementation of the methods which are common for many entities ar
  
   
 {% note info %}
-Кроме ускорения процесса проектирования и разработки, применение технологии примесей обеспечивает **единообразие в подходах**, что в результате существенно влияет на совокупную стоимость владения ПО, как за счет сопровождаемости - любой член команды разработки может сопровождать код, написанный другими, так и за счет снижения требований к обучению.
+In addition to accelerating the design and development process, the use of mixin technology ensures **uniformity of approach**.
+the result - a significant impact on the total cost of ownership, both due to maintainability - any member of the development team can follow code written by others, and by reducing training requirements
 {% endnote %}
 
-Стандартная поставка платформы включает следующие миксины:
+UnityBase Standard Edition includes the following mixins:
 
 |Mixin|Short name| Description|
 |---|---|
-|mStorage| ORM| Добавляет сущности CRUID методы, обеспечивает функционал мягкого удаления и оптимистической блокировки|
-|audit| Aудит уровня записи|Обеспечивает запись всех CRUID операций над сущностями в сущность аудита **ubs_audit**|
-|rls|Безопасность уровня записей|RLS is a security feature which allows developers to give access to a sub-set of data in their entity to others|
-|aclRls|Access Control List Row Level Security|Безопасность уровня записей на базе списков контроля доступа [Access Control List](https://en.wikipedia.org/wiki/Access_control_list)|
-|als|Attribute Level Security|Безопасность уровня атрибутов. Позволяет определить перечень доступных на просмотр/редактирование атрибутов экземпляра сущности на основании текущего состояния и активного пользователя|
-|dataHistory|Историчность записей|Обеспечивает ведение истории изменения атрибутов сущности|
-|unity|Наследование|Эмулирует объектно-ориентированную концепцию "наследования" на реляционной СУБД|
-|tree|Древовидные структуры|Позволяет хранить древовидные структуры в плоском представлении с построением хранимого пути|   
-|fts|Полнотекстовое индексирование|Построение полнотекстовых индексов на базе значений из атрибутов сущности|
-|softLock|пессимистические блокировки|Pessimistic Lock|
-|clobTruncate|CLOB<->varchar|Обрезает большие текстовые поля|
+|mStorage| ORM| Adds a CRUID methods, soft delete & optimistic lock|
+|audit| Audit tail| Record all CRUID operations to the **ubs_audit**|
+|rls|Row Level Security|RLS is a security feature which allows developers to give access to a sub-set of data in their entity to others|
+|aclRls|Access Control List Row Level Security|Row level security based on ACL [Access Control List](https://en.wikipedia.org/wiki/Access_control_list)|
+|als|Attribute Level Security|Attribute level security. It allows you to define a list available for viewing / editing entity instance attributes based on the current status and active user|
+|dataHistory|Record history|Record history|
+|unity|Unity|Simulates object-oriented concept of "inheritance" in the RDBMS|
+|tree|Tree structure|It allows you to store tree structures in a flat representation with the construction of the stored path|
+|fts|Full Text Search|Construction of the full-text index based on the value of the entity attribute|
+|softLock|Pessimistic Lock|Pessimistic Lock|
+|clobTruncate|CLOB<->varchar|Truncate a big CLOB attribute to the smallest size|
 
 
 {% note info %}
@@ -111,15 +112,18 @@ Starting from UnityBase 2.0 developer can create his own mixins.
 {% endnote %}
 
 ## Metadata
-Совокупность всех сущностей, описанных в модели предметной области, является **метаданными**. Клиентские приложения могут использовать метаданные для автоматической генерации частей пользовательского интерфейса (так делает `adminUI`), генерации документации, построения ER диаграмм, генерации DML/DDL запросов для СУБД и т.д. 
+The collection of all entities that are described in the domain model is **metadata**.
+Client applications can use the metadata to automatically generate parts of the user interface (so does `adminUI`),
+documentation generation, construction of ER diagrams, generate DML / DDL queries to the database, etc.
 
-Сервер приложений на основе метаданных обеспечивает доступ к методам сущностей  с использованием - **Server API**. Другими словами
+Based on the metadata application server provides access to entity methods. In other words
 {% note info %}
-серверу достаточно метафайла сущности для генерации API взаимодействия с этой сущностью.
+to generate API for interacting with domain, entity metafile is enough
 {% endnote %}
 
 ## Server API
-Клиентские приложения (либо другие автоматизированные системы) взаимодействуют с сервером приложений UnityBase с использованием протокола [HTTP(S)](https://ru.wikipedia.org/wiki/HTTP). Реализация данного протокола присутствует для _любого_ современного языка программирования, что позволяет встраивать решения на базе UnityBase в любую IT инфраструктуру. 
+Client applications (or other automated system) interact with UnityBase application server using a [HTTP(S)](https://ru.wikipedia.org/wiki/HTTP) protocol.
+The implementation of HTTP protocol is present for _any_ modern programming language that allows to build solutions based on UnityBase into any IT infrastructure.
 
 todo
 ## UBQL
