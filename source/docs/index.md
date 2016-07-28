@@ -18,7 +18,7 @@ Applications developed using the platform are:
 - **tested** - ready for CI including autotests
 - **secured** - support strong authentication schemas, including SSO
 - **predictable** - all data changes of all users are recorded to audit tables
-- **database agnostic** - can be used with Oracle, PostgreSQL of MS SQL database
+- **database agnostic** - can be used with Oracle, PostgreSQL, MS SQL or SQLite3 database
 - **ready for scale** - divided into logical blocks (models), connected to the application "on the run"
 
 Every day more than 50 000 people use solutions based on platforms that:

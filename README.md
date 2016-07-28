@@ -4,7 +4,13 @@ The website for UnityBase. You can see the generated files at [UnityBase.info](h
 
 Created using [Hexo](https://github.com/hexojs/hexo)
 
+
 ## Getting started
+
+For nmp3 users: Install hexo LOCALY!
+	
+	npm install --unsafe-perm hexo hexo-cli hexo-admin 
+
 
 Install dependencies:
 
